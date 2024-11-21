@@ -10,7 +10,7 @@ Include the module in your project:
 npm install minicron
 ```
 
-## Methods
+## API
 
 All methods return a `Timer` object that `clearInterval` can use as ID to cancel the cron execution.
 
