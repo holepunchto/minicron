@@ -28,10 +28,15 @@ function days (amount, fn, ...args) {
 }
 function everyDayAt (hour, fn, ...args) {
   const wait = getMsToNextOccurance(hour)
-  setTimeout(() => {
+  let interval = null
+  const timeout = setTimeout(() => {
     fn(...args)
-    days(1, fn, ...args)
+    interval = days(1, fn, ...args)
   }, wait)
+  return () => {
+    clearTimeout(timeout)
+    if (interval) clearInterval(interval)
+  }
 }
 
 module.exports = {
