@@ -33,7 +33,6 @@ function everyDayAt (hour, fn, ...args) {
     fn(...args)
     interval = days(1, fn, ...args)
   }, wait)
-
   return () => {
     clearTimeout(timeout)
     if (interval) clearInterval(interval)
