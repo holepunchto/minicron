@@ -28,7 +28,6 @@ function days (amount, fn, ...args) {
 }
 function everyDayAt (hour, fn, ...args) {
   const wait = getMsToNextOccurance(hour)
-
   let interval = null
   const timeout = setTimeout(() => {
     fn(...args)
